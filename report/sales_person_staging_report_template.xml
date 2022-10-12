@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sales_person_staging_report">
+        <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                                      
+                    <table class="table table-sm o_main_table">
+                        <thead style="display: table-row-group">
+                            <tr>
+                                <th name="th_user_id" class="text-right">Sales Person</th>
+                                <th name="th_salary" class="text-right">Salary</th>
+                                <th name="th_sales_target" class="text-right">Sales Target</th>
+                                <th name="th_sales_order_total" class="text-right">Sales Order</th>
+                                <th name="th_account_move_total" class="text-right">Invoiced</th>
+                                <th name="th_account_payment_total" class="text-right">Paid</th>
+                                <th name="th_bonus" class="text-right">Bonus</th>
+                                <th name="th_commission" class="text-right">Commission</th>
+                                <th name="th_total_earnings" class="text-right">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="sale_tbody">
+                            <t t-foreach="docs" t-as="doc">
+                                <tr>
+                                    <t>
+                                        <td name="td_user_id" class="text-right">
+                                            <span t-field="doc.user_id"/>
+                                        </td>
+                                        <td name="td_salary" class="text-right">
+                                            <span t-field="doc.salary"/>
+                                        </td>
+                                        <td name="td_sales_target" class="text-right">
+                                            <span t-field="doc.sales_target"/>
+                                        </td>
+                                        <td name="td_sales_order_total" class="text-right">
+                                            <span t-field="doc.sales_order_total"/>
+                                        </td>
+                                        <td name="td_account_move_total" class="text-right">
+                                            <span t-field="doc.account_move_total"/>
+                                        </td>
+                                        <td name="td_account_payment_total" class="text-right">
+                                            <span t-field="doc.account_payment_total"/>
+                                        </td>
+                                        <td name="td_bonus" class="text-right">
+                                            <span t-field="doc.bonus"/>
+                                        </td>
+                                        <td name="td_commission" class="text-right">
+                                            <span t-field="doc.commission"/>
+                                        </td>
+                                        <td name="td_total_earnings" class="text-right">
+                                            <span t-field="doc.total_earnings"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+        </t>
+    </template>
+
+</odoo>

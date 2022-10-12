@@ -1,0 +1,29 @@
+<odoo>
+
+    <menuitem id="menu_salary_slab"
+        name="Sales Management"
+        sequence="4"
+        groups="group_salary_slab_user"
+        web_icon="salary_slab,static/description/icon.png" />
+
+    <menuitem id="menu_salary_slab_open"
+        action="salary_slab.action_salary_slab_open"
+        name="Salary Slab"
+        sequence="1"
+        parent="menu_salary_slab" />
+
+    <menuitem id="menu_salary_slab_configuration"
+        action="salary_slab.action_sales_person_staging_open"
+        name="Configuration"
+        sequence="2"
+        groups="group_salary_slab_manager"
+        parent="menu_salary_slab" />
+
+
+    <menuitem id="menu_reporting_open"
+        action="salary_slab.action_report_sales_management"
+        name="Reporting"
+        sequence="3"
+        parent="menu_salary_slab" />
+
+</odoo>

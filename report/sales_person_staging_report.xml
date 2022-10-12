@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_sales_person_staging" model="ir.actions.report">
+            <field name="name">Sales Management Report Old</field>
+            <field name="model">sales.person.staging</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">salary_slab.sales_person_staging_report</field>
+            <field name="report_file">salary_slab.sales_person_staging_report</field>
+            <field name="print_report_name">(object.name)</field>
+            <field name="binding_model_id" ref="salary_slab.model_sales_person_staging"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="action_report_sales_management" model="ir.actions.report">
+            <field name="name">Sales Management Report</field>
+            <field name="model">sales.management.report</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">salary_slab.sales_management_report</field>
+            <field name="report_file">salary_slab.sales_management_report</field>
+            <field name="binding_model_id" ref="salary_slab.model_sales_management_report"/>
+            <field name="binding_type">report</field>
+        </record>        
+
+        <record id="action_report_journal" model="ir.actions.report">
+            <field name="name">Journals Audit</field>
+            <field name="model">account.common.journal.report</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">account.report_journal</field>
+            <field name="report_file">account.report_journal</field>
+            <field name="binding_model_id" ref="model_account_common_journal_report"/>
+            <field name="binding_type">report</field>
+        </record>        
+
+    </data>
+</odoo>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+      <record id="view_sales_person_staging_tree" model="ir.ui.view">
+          <field name="name">sales.person.staging.tree</field>
+          <field name="model">sales.person.staging</field>
+          <field name="priority">2</field>
+          <field name="arch" type="xml">
+              <tree string="Sales Person Configuration">
+                  <field name="date_from"/>
+                  <field name="date_to"/>
+                  <field name="user_id"/>
+                  <field name="salary_slab_id"/>
+                  <field name="salary"/>
+                  <field name="sales_target"/>
+                  <field name="bonus"/>
+                  <field name="commission_percentage"/>
+                  <field name="sales_order_total"/>
+                  <field name="account_move_total"/>
+                  <field name="account_payment_total"/>
+                  <field name="commission"/>
+                  <field name="total_earnings"/>
+              </tree>
+          </field>
+      </record>
+
+      <record id="view_sales_person_staging_form" model="ir.ui.view">
+          <field name="name">sales.person.staging.form</field>
+          <field name="model">sales.person.staging</field>
+          <field name="arch" type="xml">
+              <form string="Sales Person Configuration" class="o_sale_order">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}" />
+                    <group>
+                        <group>
+                            <label for="date_from" string="Date"/>
+                            <div name="dates" class="o_row">
+                                <field name="date_from" widget="daterange" options='{"related_end_date": "date_to"}'/>
+                                <i class="fa fa-long-arrow-right mx-2 oe_edit_only" aria-label="Arrow icon" title="Arrow"/>
+                                <i class="fa fa-long-arrow-right mx-2 oe_read_only" aria-label="Arrow icon" title="Arrow" attrs="{'invisible': [('date_from', '=', False), ('date_to', '=', False)]}"/>
+                                <field name="date_to" widget="daterange" options='{"related_start_date": "date_from"}'/>
+                            </div>
+                            <field name="user_id"/>
+                            <field name="salary_slab_id"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>                
+              </form>
+          </field>
+      </record>
+
+      <record id="view_sales_person_staging_filter" model="ir.ui.view">
+          <field name="name">sales.person.staging.list.select</field>
+          <field name="model">sales.person.staging</field>
+          <field name="priority" eval="15"/>
+          <field name="arch" type="xml">
+              <search string="Search Sales Person Configuration">
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="user_id"/>
+                <field name="salary_slab_id"/>
+                <field name="salary"/>
+                <field name="sales_target"/>
+                <field name="bonus"/>
+                <field name="commission_percentage"/>
+                <field name="sales_order_total"/>
+                <field name="account_move_total"/>
+                <field name="account_payment_total"/>
+                <field name="commission"/>
+                <field name="total_earnings"/>
+             </search>
+          </field>
+      </record>
+
+      <record id="action_sales_person_staging_open" model="ir.actions.act_window">
+          <field name="name">Sales Person Configuration</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">sales.person.staging</field>
+          <field name="view_mode">tree,form</field>
+          <field name="search_view_id"/>
+          <field name="context">{}</field>
+          <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                  To create a new record
+              </p><p>
+                  <br/> Click on "Create"
+              </p>
+          </field>
+      </record>
+
+  </data>
+</odoo>

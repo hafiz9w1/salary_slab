@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+      <record id="view_salary_slab_tree" model="ir.ui.view">
+          <field name="name">salary.slab.tree</field>
+          <field name="model">salary.slab</field>
+          <field name="priority">2</field>
+          <field name="arch" type="xml">
+              <tree string="Salary Slab">
+                  <field name="name"/>
+                  <field name="salary"/>
+                  <field name="sales_target"/>
+                  <field name="bonus"/>
+                  <field name="commission_percentage"/>
+              </tree>
+          </field>
+      </record>
+
+      <record id="view_salary_slab_form" model="ir.ui.view">
+          <field name="name">salary.slab.form</field>
+          <field name="model">salary.slab</field>
+          <field name="arch" type="xml">
+              <form string="Salary Slab" class="o_sale_order">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}" />
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="salary"/>
+                            <field name="sales_target"/>
+                        </group>
+                        <group>
+                            <field name="bonus"/>
+                            <field name="commission_percentage"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>                
+              </form>
+          </field>
+      </record>
+
+      <record id="view_salary_slab_filter" model="ir.ui.view">
+          <field name="name">salary.slab.list.select</field>
+          <field name="model">salary.slab</field>
+          <field name="priority" eval="15"/>
+          <field name="arch" type="xml">
+              <search string="Search Salary Slab">
+                <field name="name"/>
+                <field name="salary"/>
+                <field name="sales_target"/>
+                <field name="bonus"/>
+                <field name="commission_percentage"/>
+             </search>
+          </field>
+      </record>
+
+      <record id="action_salary_slab_open" model="ir.actions.act_window">
+          <field name="name">Salary Slab</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">salary.slab</field>
+          <field name="view_mode">tree,form</field>
+          <field name="search_view_id"/>
+          <field name="context">{}</field>
+          <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                  To create a new record
+              </p><p>
+                  <br/> Click on "Create"
+              </p>
+          </field>
+      </record>
+
+  </data>
+</odoo>
